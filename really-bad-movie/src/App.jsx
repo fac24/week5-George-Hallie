@@ -1,50 +1,47 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useState } from "react";
+import React from "react";
+//import logo from './game.jsx'
+import "./App.css";
+
+import Lives from "./components/Lives.jsx";
+import Game from "./components/Game.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = React.useState(null);
+  const [lives, setLives] = React.useState(5);
+  const [correct, setCorrect] = React.useState(0);
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="header">
         <h1>Badflix</h1>
-        <p>Rules should be here</p>
+        <p className="rules">Rules should be here</p>
         <input
           type="search"
-          name="searchUsername"
+          name="typeusername"
           className="playerInput"
           aria-label="enter your username"
           required
         />
-        <button type="submit" className="btn">
+        <br />
+        <button type="submit" className="button">
           Submit Player
         </button>
-        <p>
-          Hi, User!
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
+        <p>Hi, {name}!</p>
+        <section className="lives">
+          <Lives lives={lives} />
+        </section>
+        <section className="gameArea">
+          <Game
+            lives={lives}
+            setLives={setLives}
+            correct={correct}
+            setCorrect={setCorrect}
+          />
+        </section>
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
