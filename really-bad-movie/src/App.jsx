@@ -8,15 +8,20 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
+        <h1>Badflix</h1>
+        <p>Rules should be here</p>
+        <input
+          type="search"
+          name="searchUsername"
+          className="playerInput"
+          aria-label="enter your username"
+          required
+        />
+        <button type="submit" className="btn">
+          Submit Player
+        </button>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
+          Hi, User!
         </p>
         <p>
           <a
