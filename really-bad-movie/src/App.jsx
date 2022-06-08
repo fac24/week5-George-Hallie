@@ -1,4 +1,3 @@
-import { useState } from "react";
 import React from "react";
 //import logo from './game.jsx'
 import "./App.css";
@@ -22,14 +21,12 @@ function App() {
           className="playerInput"
           aria-label="enter your username"
           required
+          onChange={(event) => setName(event.target.value)}
         />
-        <br />
-        <button type="submit" className="button">
-          Submit Player
-        </button>
+
         <p>Hi, {name}!</p>
         <section className="lives">
-          <Lives lives={lives} />
+          <Lives lives={lives} correct={correct} />
         </section>
         <section className="gameArea">
           <Game
