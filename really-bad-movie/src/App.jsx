@@ -9,6 +9,7 @@ function App() {
   const [name, setName] = React.useState(null);
   const [lives, setLives] = React.useState(5);
   const [correct, setCorrect] = React.useState(0);
+  const [guesses, setGuesses] = React.useState(0);
 
   return (
     <div className="App">
@@ -34,6 +35,8 @@ function App() {
             setLives={setLives}
             correct={correct}
             setCorrect={setCorrect}
+            guesses={guesses}
+            setGuesses={setGuesses}
           />
         </section>
       </header>
