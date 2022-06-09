@@ -68,24 +68,3 @@ export default function Game(props) {
     </>
   );
 }
-
-// flipcards
-{
-  /* <div className="flip_card">
-    <div className="flip_card_inner">
-        <div className="flip_card_front">
-            <label htmlFor={props.tileId}>
-            Tile {filmData.original_title}
-            <input
-            id={props.tileId}
-            type="image"
-            name={`submit_${props.tileId}`}
-            value={props.tileId}
-            alt={`Poster of ${filmData.original_title}`}
-            src={IMAGE_URL + filmData.poster_path}/>
-            </label>
-        </div>
-        <div className="flip_card_back">rating= {props.rating}</div>
-    </div>
-</div> */
-}
