@@ -12,7 +12,6 @@ export default function Game(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(props.lives, props.correct);
     const filmPick = event.nativeEvent.submitter.value;
 
     if (parseInt(filmPick) !== parseInt(higherRating)) {
