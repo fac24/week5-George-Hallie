@@ -1,9 +1,7 @@
 import React from "react";
-
 const MOVIE_URL = "https://api.themoviedb.org/3/";
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
-// const API_KEY = import.meta.env.VITE_APP_API_KEY;
-const API_KEY = "87337df5190b4447f246a4872658a898";
+const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 function fetchFilm(page) {
   const DISCOVER_URL =
@@ -29,32 +27,29 @@ function FilmTile(props) {
   if (!filmData) return <div>Loading...</div>;
   return (
     <>
-    <div className="flip_card">
-      <div className="flip_card_inner">
+      <div className="flip_card">
+        <div className="flip_card_inner">
           <div className="flip_card_front">
-             <label htmlFor={props.tileId}>
-             Tile {filmData.original_title}
-             <input
-             id={props.tileId}
-             type="image"
-             name={`submit_${props.tileId}`}
-             value={props.tileId}
-             alt={`Poster of ${filmData.original_title}`}
-             src={IMAGE_URL + filmData.poster_path}
-             style={{height: 500, width: 300}}
-             />
-             </label>
+            <label htmlFor={props.tileId}>
+              Tile {filmData.original_title}
+              <input
+                id={props.tileId}
+                type="image"
+                name={`submit_${props.tileId}`}
+                value={props.tileId}
+                alt={`Poster of ${filmData.original_title}`}
+                src={IMAGE_URL + filmData.poster_path}
+                style={{ height: 500, width: 300 }}
+              />
+            </label>
           </div>
           <div className="flip_card_back">
-              <div className="rating">{props.rating.toFixed(0)}</div>
+            <div className="rating">{props.rating.toFixed(0)}</div>
           </div>
+        </div>
       </div>
-    </div>
-      
-    
     </>
   );
-  
 }
 
 export default function Game(props) {
@@ -80,26 +75,27 @@ export default function Game(props) {
   //if (!rating1 | !rating2) return <div>Loading...</div>;
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
-    <div className="flip">
-      <FilmTile
-        tileId={1}
-        correct={props.correct}
-        rating={rating1}
-        setRating={setRating1}
-      />
-      <FilmTile
-        tileId={2}
-        correct={props.correct}
-        rating={rating2}
-        setRating={setRating2}
-      />
-    </div>
+      <div className="flip">
+        <FilmTile
+          tileId={1}
+          correct={props.correct}
+          rating={rating1}
+          setRating={setRating1}
+        />
+        <FilmTile
+          tileId={2}
+          correct={props.correct}
+          rating={rating2}
+          setRating={setRating2}
+        />
+      </div>
     </form>
   );
 }
 
 // flipcards
-{/* <div className="flip_card">
+{
+  /* <div className="flip_card">
     <div className="flip_card_inner">
         <div className="flip_card_front">
             <label htmlFor={props.tileId}>
@@ -115,4 +111,5 @@ export default function Game(props) {
         </div>
         <div className="flip_card_back">rating= {props.rating}</div>
     </div>
-</div> */}
+</div> */
+}
