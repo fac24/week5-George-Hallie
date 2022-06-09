@@ -2,6 +2,7 @@ import React from "react";
 //import logo from './game.jsx'
 import "./App.css";
 
+import Rules from "./components/Rules.jsx";
 import Lives from "./components/Lives.jsx";
 import Game from "./components/Game.jsx";
 
@@ -15,7 +16,7 @@ function App() {
     <div className="App">
       <header className="header">
         <h1>Badflix</h1>
-        <p className="rules">Rules should be here</p>
+        <Rules />
         <input
           type="search"
           name="typeusername"
