@@ -27,7 +27,7 @@ export default function FilmTile(props) {
   if (!filmData) return <div>Loading...</div>;
   const filmSubmit = (
     <label htmlFor={props.tileId}>
-      Tile {filmData.original_title}
+      {filmData.original_title}
       <input
         id={props.tileId}
         type="image"
@@ -35,7 +35,7 @@ export default function FilmTile(props) {
         value={props.tileId}
         alt={`Poster of ${filmData.original_title}`}
         src={IMAGE_URL + filmData.poster_path}
-        style={{ height: 500, width: 300 }}
+        style={{ height: "100%", width: "100%", objectFit: "contain" }}
       />
     </label>
   );
@@ -48,12 +48,12 @@ export default function FilmTile(props) {
         value={props.tileId}
         alt={`Poster of ${filmData.original_title}`}
         src={IMAGE_URL + filmData.poster_path}
-        style={{ height: 500, width: 300 }}
+        style={{ height: "100%", width: "100%", objectFit: "contain" }}
       />
     </label>
   );
   if (5 - props.lives + props.correct === props.guesses)
-    return <div>{filmSubmit}</div>;
+    return <div className="flip_card card">{filmSubmit}</div>;
   return (
     <>
       <div className="flip_card">
