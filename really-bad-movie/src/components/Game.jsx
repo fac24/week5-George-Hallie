@@ -12,7 +12,6 @@ export default function Game(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(props.lives, props.correct);
     const filmPick = event.nativeEvent.submitter.value;
 
     if (parseInt(filmPick) !== parseInt(higherRating)) {
@@ -27,6 +26,8 @@ export default function Game(props) {
       <button
         onClick={() => {
           props.setGuesses(props.guesses + 1);
+          setRating1(null);
+          setRating2(null);
         }}
       >
         Next Film
