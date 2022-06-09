@@ -35,7 +35,7 @@ function App() {
     <div className="App">
       <header >
         <h1 className="title">Badflix</h1>
-        <Rules />
+         <div className="rules"><Rules /></div>
         
         <section className = "hello_user">
           <form id="form">
