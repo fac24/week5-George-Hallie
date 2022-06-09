@@ -27,21 +27,29 @@ function FilmTile(props) {
   if (!filmData) return <div>Loading...</div>;
   return (
     <>
-      <label htmlFor={props.tileId}>
-        Tile {filmData.original_title}
-        <input
-          id={props.tileId}
-          type="image"
-          name={`submit_${props.tileId}`}
-          value={props.tileId}
-          alt={`Poster of ${filmData.original_title}`}
-          src={IMAGE_URL + filmData.poster_path}
-        />
-      </label>
-      <div>rating= {props.rating}</div>
+      <div className="flip_card">
+        <div className="flip_card_inner">
+          <div className="flip_card_front">
+            <label htmlFor={props.tileId}>
+              Tile {filmData.original_title}
+              <input
+                id={props.tileId}
+                type="image"
+                name={`submit_${props.tileId}`}
+                value={props.tileId}
+                alt={`Poster of ${filmData.original_title}`}
+                src={IMAGE_URL + filmData.poster_path}
+                style={{ height: 500, width: 300 }}
+              />
+            </label>
+          </div>
+          <div className="flip_card_back">
+            <div className="rating">{props.rating.toFixed(0)}</div>
+          </div>
+        </div>
+      </div>
     </>
   );
-  //rating={</filmData.ring}atdiv>  ;
 }
 
 export default function Game(props) {
@@ -67,29 +75,41 @@ export default function Game(props) {
   //if (!rating1 | !rating2) return <div>Loading...</div>;
   return (
     <form onSubmit={(event) => handleSubmit(event)}>
-      <FilmTile
-        tileId={1}
-        correct={props.correct}
-        rating={rating1}
-        setRating={setRating1}
-      />
-      <FilmTile
-        tileId={2}
-        correct={props.correct}
-        rating={rating2}
-        setRating={setRating2}
-      />
+      <div className="flip">
+        <FilmTile
+          tileId={1}
+          correct={props.correct}
+          rating={rating1}
+          setRating={setRating1}
+        />
+        <FilmTile
+          tileId={2}
+          correct={props.correct}
+          rating={rating2}
+          setRating={setRating2}
+        />
+      </div>
     </form>
   );
 }
 
-//flipcards
-//  <div className ="flip_card">
-//     <div className="flip_card_inner">
-//         <div calssName="flip_card_front">
-//              Tile {filmData.original_title}
-//             <img src={IMAGE_URL + filmData.poster_path} alt="poster"/>
-//         </div>
-//         <div className="flip_card_back">RATING</div>
-//     </div>
-// </div>
+// flipcards
+{
+  /* <div className="flip_card">
+    <div className="flip_card_inner">
+        <div className="flip_card_front">
+            <label htmlFor={props.tileId}>
+            Tile {filmData.original_title}
+            <input
+            id={props.tileId}
+            type="image"
+            name={`submit_${props.tileId}`}
+            value={props.tileId}
+            alt={`Poster of ${filmData.original_title}`}
+            src={IMAGE_URL + filmData.poster_path}/>
+            </label>
+        </div>
+        <div className="flip_card_back">rating= {props.rating}</div>
+    </div>
+</div> */
+}
