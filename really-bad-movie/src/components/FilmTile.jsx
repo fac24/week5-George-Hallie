@@ -1,4 +1,6 @@
 import React from "react";
+import FilmInput from "./FilmInput.jsx";
+import FilmFlip from "./FilmFlip.jsx";
 const MOVIE_URL = "https://api.themoviedb.org/3/";
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
@@ -24,35 +26,16 @@ export default function FilmTile(props) {
   }, [props]);
 
   if (!filmData || !props.rating) return <div>Loading...</div>;
-  const filmSubmit = (
-    <label htmlFor={props.tileId}>
-      {filmData.original_title}
-      <input
-        id={props.tileId}
-        type="image"
-        name={`submit_${props.tileId}`}
-        value={props.tileId}
-        alt={`Poster of ${filmData.original_title}`}
-        src={IMAGE_URL + filmData.poster_path}
-        style={{ height: "100%", width: "100%", objectFit: "contain" }}
-      />
-    </label>
-  );
-  const filmFlip = (
-    <label htmlFor={props.tileId}>
-      {filmData.original_title}
-      <img
-        id={props.tileId}
-        name={`submit_${props.tileId}`}
-        value={props.tileId}
-        alt={`Poster of ${filmData.original_title}`}
-        src={IMAGE_URL + filmData.poster_path}
-        style={{ height: "100%", width: "100%", objectFit: "contain" }}
-      />
-    </label>
-  );
   if (5 - props.lives + props.correct === props.guesses)
-    return <div className="flip_card card">{filmSubmit}</div>;
+    return (
+      <div className="flip_card card">
+        <FilmInput
+          filmData={filmData}
+          tileId={props.tileId}
+          IMAGE_URL={IMAGE_URL}
+        />
+      </div>
+    );
   return (
     <>
       <div className="flip_card">
@@ -60,7 +43,13 @@ export default function FilmTile(props) {
           <div className="flip_card_front">
             <div className="rating">{props.rating.toFixed(0)}</div>
           </div>
-          <div className="flip_card_back">{filmFlip}</div>
+          <div className="flip_card_back">
+            <FilmFlip
+              filmData={filmData}
+              tileId={props.tileId}
+              IMAGE_URL={IMAGE_URL}
+            />
+          </div>
         </div>
       </div>
     </>

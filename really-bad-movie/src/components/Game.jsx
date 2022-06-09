@@ -1,5 +1,7 @@
 import React from "react";
 import FilmTile from "./FilmTile.jsx";
+import NextFilm from "./NextFilm.jsx";
+import Restart from "./Restart.jsx";
 
 export default function Game(props) {
   const [rating1, setRating1] = React.useState(null);
@@ -8,6 +10,7 @@ export default function Game(props) {
   const [randomIndex, setRandomIndex] = React.useState(
     Math.floor(Math.random() * 10 + 1)
   );
+
   React.useEffect(() => {
     return rating1 > rating2 ? setHigherRating(1) : setHigherRating(2);
   }, [rating1, rating2]);
@@ -22,34 +25,14 @@ export default function Game(props) {
     }
   }
 
-  const nextFilm =
-    5 - props.lives + props.correct !== props.guesses ? (
-      <button
-        onClick={() => {
-          props.setGuesses(props.guesses + 1);
-          setRandomIndex(Math.floor(Math.random() * 10 + 1));
-          setRating1(null);
-          setRating2(null);
-        }}
-      >
-        Next Film
-      </button>
-    ) : null;
-
-  const restartButton = (
-    <button
-      onClick={() => {
-        props.setGuesses(0);
-        props.setLives(5);
-        props.setCorrect(0);
-      }}
-    >
-      RESTART GAME
-    </button>
-  );
-
-  if (props.lives === 0) return restartButton;
-  //if (rating1 === null || rating2 === null) return <div>Loading...</div>;
+  if (props.lives === 0)
+    return (
+      <Restart
+        setGuesses={props.setGuesses}
+        setLives={props.setLives}
+        setCorrect={props.setCorrect}
+      />
+    );
   return (
     <>
       <form onSubmit={(event) => handleSubmit(event)}>
@@ -74,7 +57,14 @@ export default function Game(props) {
           />
         </div>
       </form>
-      {nextFilm}
+      <NextFilm
+        canRender={5 - props.lives + props.correct !== props.guesses}
+        setGuesses={props.setGuesses}
+        guesses={props.guesses}
+        setRandomIndex={setRandomIndex}
+        setRating1={setRating1}
+        setRating2={setRating2}
+      />
     </>
   );
 }
