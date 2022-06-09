@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  /* background-color: #618685; */
+  padding: 18px;
 }
 
 .App-header {
@@ -14,7 +16,7 @@
 }
 
 body {
-  background-color: aquamarine;
+  background-color: #36486b;
 }
 
 /* flipcards */
@@ -24,6 +26,7 @@ body {
   justify-content: space-evenly;
   margin: 0 auto;
   padding: 16px;
+  border-radius: 12px;
 }
 
 .flip_card {
@@ -31,7 +34,7 @@ body {
     background-color: transparent;
     width: 300px;
     height: 500px;
-    border: 1px solid #f1f1f1;
+    border: 1px solid #bbb;
     perspective: 1000px;
     border-radius: 12px;
 }
@@ -43,11 +46,13 @@ body {
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  border-radius: 12px;
 }
 
 
 .flip_card:hover .flip_card_inner {
   transform: rotateY(180deg);
+  border-radius: 12px;
 }
 
 .flip_card_front, .flip_card_back {
@@ -56,18 +61,37 @@ body {
   height: 100%;
   -webkit-backface-visibility: hidden; 
   backface-visibility: hidden;
+  border-radius: 12px;
 }
 
 .flip_card_front {
   background-color: #bbb;
   color: black;
+  font-weight: bolder;
+  
+  border-radius: 12px;
 }
 
 
 .flip_card_back {
-  background-color: dodgerblue;
+  background-color: #4040a1;
   color: white;
   transform: rotateY(180deg);
   width: 300px;
   height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
+.rating {
+  background-color: #bbb;
+  color: black;
+  text-align: center;
+  padding: 24px;
+  border-radius: 45px;
+  font-size: larger;
+  font-weight: bolder;
 }

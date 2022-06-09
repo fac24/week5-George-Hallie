@@ -2,7 +2,8 @@ import React from "react";
 
 const MOVIE_URL = "https://api.themoviedb.org/3/";
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
-const API_KEY = import.meta.env.VITE_APP_API_KEY;
+// const API_KEY = import.meta.env.VITE_APP_API_KEY;
+const API_KEY = "87337df5190b4447f246a4872658a898";
 
 function fetchFilm(page) {
   const DISCOVER_URL =
@@ -44,7 +45,9 @@ function FilmTile(props) {
              />
              </label>
           </div>
-          <div className="flip_card_back"><h1>rating= {props.rating}</h1></div>
+          <div className="flip_card_back">
+              <div className="rating">{props.rating.toFixed(0)}</div>
+          </div>
       </div>
     </div>
       
