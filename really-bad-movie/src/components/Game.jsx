@@ -16,7 +16,7 @@ export default function Game(props) {
     event.preventDefault();
     console.log(props.lives, props.correct);
     const filmPick = event.nativeEvent.submitter.value;
-    if (parseInt(filmPick) !== parseInt(higherRating)) {
+    if (parseInt(filmPick) === parseInt(higherRating)) {
       props.setLives(props.lives - 1);
     } else {
       props.setCorrect(props.correct + 1);
