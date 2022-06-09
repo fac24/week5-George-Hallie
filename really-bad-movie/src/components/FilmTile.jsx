@@ -5,8 +5,7 @@ const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 function fetchFilm(page) {
   const DISCOVER_URL =
-    MOVIE_URL +
-    `discover/movie?api_key=${API_KEY}&include_video=false&page=${page}`;
+    MOVIE_URL + `movie/top_rated?api_key=${API_KEY}&page=${page}`;
   return fetch(DISCOVER_URL).then((res) => {
     if (!res.ok) throw new Error("HTTP error");
     return res.json();
@@ -18,16 +17,16 @@ export default function FilmTile(props) {
 
   React.useEffect(() => {
     fetchFilm(props.guesses + 1).then((json) => {
-      const film = json.results[props.tileId];
+      const film = json.results[props.tileId * props.randomIndex - 1];
       setFilmData(film);
       props.setRating(film.popularity);
     });
   }, [props]);
 
-  if (!filmData) return <div>Loading...</div>;
+  if (!filmData || !props.rating) return <div>Loading...</div>;
   const filmSubmit = (
     <label htmlFor={props.tileId}>
-      Tile {filmData.original_title}
+      {filmData.original_title}
       <input
         id={props.tileId}
         type="image"
@@ -35,7 +34,7 @@ export default function FilmTile(props) {
         value={props.tileId}
         alt={`Poster of ${filmData.original_title}`}
         src={IMAGE_URL + filmData.poster_path}
-        style={{ height: 500, width: 300 }}
+        style={{ height: "100%", width: "100%", objectFit: "contain" }}
       />
     </label>
   );
@@ -48,12 +47,12 @@ export default function FilmTile(props) {
         value={props.tileId}
         alt={`Poster of ${filmData.original_title}`}
         src={IMAGE_URL + filmData.poster_path}
-        style={{ height: 500, width: 300 }}
+        style={{ height: "100%", width: "100%", objectFit: "contain" }}
       />
     </label>
   );
   if (5 - props.lives + props.correct === props.guesses)
-    return <div>{filmSubmit}</div>;
+    return <div className="flip_card card">{filmSubmit}</div>;
   return (
     <>
       <div className="flip_card">

@@ -2,6 +2,7 @@ import React from "react";
 //import logo from './game.jsx'
 import "./App.css";
 
+import Rules from "./components/Rules.jsx";
 import Lives from "./components/Lives.jsx";
 import Game from "./components/Game.jsx";
 
@@ -34,7 +35,7 @@ function App() {
     <div className="App">
       <header >
         <h1 className="title">Badflix</h1>
-        <p className="rules">Rules should be here</p>
+        <Rules />
         
         <section className = "hello_user">
           <form id="form">

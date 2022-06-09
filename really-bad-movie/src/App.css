@@ -44,6 +44,10 @@ body {
     border-radius: 12px;
 }
 
+.card {
+  background-color: #bbb;
+}
+
 .flip_card_inner {
   position: relative;
   width: 100%;
