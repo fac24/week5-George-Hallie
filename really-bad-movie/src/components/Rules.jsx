@@ -6,7 +6,7 @@ export default function Rules(props) {
     setOpen(!open);
   }
   const rules = !open ? null : (
-    <div>
+    <div className="rules">
       <ul>
         <li>You have a choice between 2 films</li>
         <li>
@@ -19,7 +19,7 @@ export default function Rules(props) {
   );
   return (
     <div className="rules">
-      <button onClick={toggleOpen}>Rules</button>;{rules}
+      <button className="awfbtn" onClick={toggleOpen}>Rules</button>;{rules}
     </div>
   );
 }
