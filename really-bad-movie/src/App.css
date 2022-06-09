@@ -4,6 +4,13 @@ html {
   max-width: 75em;
 }
 
+:root {
+  --light: #fefbd8;
+  --grey: #618685;
+  --navy: #36486b;
+  --blue: #4040a1;
+}
+
 .App {
   text-align: center;
   padding: 18px;
