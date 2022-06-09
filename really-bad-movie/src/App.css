@@ -1,6 +1,11 @@
+html {
+  margin: 0 auto;
+  background-color:#4040a1;
+  max-width: 75em;
+}
+
 .App {
   text-align: center;
-  /* background-color: #618685; */
   padding: 18px;
 }
 
