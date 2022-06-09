@@ -64,19 +64,19 @@ body {
   border-radius: 12px;
 }
 
-.flip_card_front {
+.flip_card_back {
   background-color: #bbb;
   color: black;
   font-weight: bolder;
-  
+  transform: rotateY(180deg);
   border-radius: 12px;
 }
 
 
-.flip_card_back {
+.flip_card_front {
   background-color: #4040a1;
   color: white;
-  transform: rotateY(180deg);
+  
   width: 300px;
   height: 500px;
   display: flex;
