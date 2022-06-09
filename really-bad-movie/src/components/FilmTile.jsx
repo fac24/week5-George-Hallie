@@ -24,7 +24,7 @@ export default function FilmTile(props) {
     });
   }, [props]);
 
-  if (!filmData) return <div>Loading...</div>;
+  if (!filmData || !props.rating) return <div>Loading...</div>;
   const filmSubmit = (
     <label htmlFor={props.tileId}>
       {filmData.original_title}

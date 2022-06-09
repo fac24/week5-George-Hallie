@@ -26,6 +26,8 @@ export default function Game(props) {
       <button
         onClick={() => {
           props.setGuesses(props.guesses + 1);
+          setRating1(null);
+          setRating2(null);
         }}
       >
         Next Film
