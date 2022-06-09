@@ -41,7 +41,7 @@ export default function FilmTile(props) {
   );
   const filmFlip = (
     <label htmlFor={props.tileId}>
-      Tile {filmData.original_title}
+      {filmData.original_title}
       <img
         id={props.tileId}
         name={`submit_${props.tileId}`}
@@ -58,10 +58,10 @@ export default function FilmTile(props) {
     <>
       <div className="flip_card">
         <div className="flip_card_inner">
-          <div className="flip_card_front">{filmFlip}</div>
-          <div className="flip_card_back">
+          <div className="flip_card_front">
             <div className="rating">{props.rating.toFixed(0)}</div>
           </div>
+          <div className="flip_card_back">{filmFlip}</div>
         </div>
       </div>
     </>
