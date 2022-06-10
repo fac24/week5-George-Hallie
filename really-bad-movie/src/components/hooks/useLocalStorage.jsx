@@ -6,7 +6,6 @@ export default function useLocalStorage(key, variable) {
   React.useEffect(() => {
     if (variable > localStore) {
       setLocalStore(variable);
-      localStorage.setItem(key, variable);
     }
   }, [variable, localStore]);
 

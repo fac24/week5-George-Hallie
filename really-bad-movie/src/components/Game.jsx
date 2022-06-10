@@ -24,7 +24,8 @@ export default function Game(props) {
     }
   }
   if (!props.name) return null;
-  if (props.lives === 0)
+  if (props.lives === 0) {
+    localStorage.setItem(props.name, props.correct);
     return (
       <Restart
         setGuesses={props.setGuesses}
@@ -32,6 +33,7 @@ export default function Game(props) {
         setCorrect={props.setCorrect}
       />
     );
+  }
   return (
     <>
       <form onSubmit={(event) => handleSubmit(event)}>
