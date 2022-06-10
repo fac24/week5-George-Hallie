@@ -8,6 +8,7 @@ html {
   margin: 0 auto;
   background-color:var(--blue);
   max-width: 75em;
+  height: 100%;
 }
 
 :root {
@@ -29,7 +30,7 @@ html {
 body {
   padding: 0 3em;
   background-color: var(--navy);
-  
+  border-radius: 12px;
 }
 
 .title {
@@ -212,6 +213,20 @@ font-weight: bold;
   font-size: 1.2rem;
   font-weight: 800;
   background-color: var(--grey);
+  color: var(--light);
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid var(--navy);
+  box-shadow: 10px 10px 10px var(--navy-shadow); 
+}
+
+.game_over {
+  display: inline-block;
+  padding: 6px 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  background-color: #c94c4c;
   color: var(--light);
   cursor: pointer;
   border-radius: 6px;
