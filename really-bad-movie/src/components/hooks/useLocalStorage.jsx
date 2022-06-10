@@ -1,9 +1,7 @@
 import React from "react";
 
 export default function useLocalStorage(key, variable) {
-  const [localStore, setLocalStore] = React.useState(() => {
-    return +localStorage.getItem(key) || 0;
-  });
+  const [localStore, setLocalStore] = React.useState(null);
 
   React.useEffect(() => {
     if (variable > localStore) {
