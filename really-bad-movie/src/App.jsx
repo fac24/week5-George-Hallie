@@ -12,7 +12,7 @@ function App() {
   const [lives, setLives] = React.useState(5);
   const [correct, setCorrect] = React.useState(0);
   const [guesses, setGuesses] = React.useState(0);
-  const [highScore, setHighScore] = useLocalStorage("high-score", correct);
+  const [highScore, setHighScore] = useLocalStorage(name, correct);
   const [visibility, setVisibility] = React.useState(true);
 
   const showName = (event) => {
@@ -52,12 +52,14 @@ function App() {
         </section>
 
         <section className="lives">
-          <Lives
-            lives={lives}
-            correct={correct}
-            highScore={highScore}
-            setHighScore={setHighScore}
-          />
+          {name ? (
+            <Lives
+              lives={lives}
+              correct={correct}
+              highScore={highScore}
+              setHighScore={setHighScore}
+            />
+          ) : null}
         </section>
 
         <section className="gameArea">

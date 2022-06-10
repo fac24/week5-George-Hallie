@@ -12,5 +12,9 @@ export default function useLocalStorage(key, variable) {
     }
   }, [variable, localStore]);
 
+  React.useEffect(() => {
+    setLocalStore(+localStorage.getItem(key) || 0);
+  }, [key]);
+
   return [localStore, setLocalStore];
 }
