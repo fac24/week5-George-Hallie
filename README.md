@@ -2,6 +2,11 @@
 
 ## BADFLIX! https://really-bad-movie.netlify.app/
 
+# Team members:
+
+- [Hallie](https://github.com/vasystus)
+- [George](https://github.com/Glombort)
+
 ---
 
 ## How to run in your local DEV environment
