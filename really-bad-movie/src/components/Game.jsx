@@ -1,19 +1,18 @@
 import React from "react";
+
 import FilmTile from "./FilmTile.jsx";
 import NextFilm from "./NextFilm.jsx";
 import Restart from "./Restart.jsx";
 
+import useLarger from "./hooks/useLarger.jsx";
+
 export default function Game(props) {
   const [rating1, setRating1] = React.useState(null);
   const [rating2, setRating2] = React.useState(null);
-  const [higherRating, setHigherRating] = React.useState(null);
+  const [higherRating, setHigherRating] = useLarger(rating1, rating2);
   const [randomIndex, setRandomIndex] = React.useState(
     Math.floor(Math.random() * 10 + 1)
   );
-
-  React.useEffect(() => {
-    return rating1 > rating2 ? setHigherRating(1) : setHigherRating(2);
-  }, [rating1, rating2]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -24,7 +23,7 @@ export default function Game(props) {
       props.setCorrect(props.correct + 1);
     }
   }
-
+  if (!props.name) return null;
   if (props.lives === 0)
     return (
       <Restart

@@ -19,6 +19,7 @@ export default function Lives(props) {
 
   return (
     <>
+      <div>High Score = {props.highScore}</div>
       <div>Number Correct = {props.correct}</div>
       <div>{stars}</div>
     </>
