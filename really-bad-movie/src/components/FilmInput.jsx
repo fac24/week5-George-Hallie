@@ -4,7 +4,7 @@ export default function FilmInput(props) {
   return (
     <label htmlFor={props.tileId}>
       {props.filmData.original_title}
-      <input
+      <input 
         id={props.tileId}
         type="image"
         name={`submit_${props.tileId}`}
