@@ -3,7 +3,7 @@ import React from "react";
 import Star from "./Star.jsx";
 
 export default function Lives(props) {
-  if (props.lives === 0) return <div>GAME OVER!! You Got {props.correct}</div>;
+  if (props.lives === 0) return <div className="game_over">GAME OVER!! You Got {props.correct}</div>;
 
   const starsInit = [
     <Star gold={true} key={0} />,
@@ -19,6 +19,7 @@ export default function Lives(props) {
 
   return (
     <>
+      <div>High Score = {props.highScore}</div>
       <div>Number Correct = {props.correct}</div>
       <div>{stars}</div>
     </>

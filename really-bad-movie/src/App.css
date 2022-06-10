@@ -202,3 +202,19 @@ font-weight: bold;
   color: var(--light);
   border: 2px solid var(--light);
 }
+
+/* restart button */
+
+.restart {
+  display: inline-block;
+  padding: 6px 10px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  background-color: var(--grey);
+  color: var(--light);
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid var(--navy);
+  box-shadow: 10px 10px 10px var(--navy-shadow); 
+}
