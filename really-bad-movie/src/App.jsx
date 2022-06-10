@@ -6,17 +6,13 @@ import Rules from "./components/Rules.jsx";
 import Lives from "./components/Lives.jsx";
 import Game from "./components/Game.jsx";
 
+
 function App() {
   const [name, setName] = React.useState('');
   const [lives, setLives] = React.useState(5);
   const [correct, setCorrect] = React.useState(0);
   const [guesses, setGuesses] = React.useState(0);
   
-  
-  // React.useEffect(() => {
-  //   document.title = `Hello ${name}`;
-
-  // });
 
   const updateName = (event) => {
     setName(event.target.value);
@@ -24,8 +20,9 @@ function App() {
 
   const showName = event => {
     event.preventDefault();
-    document.getElementById("showtime").innerHTML = `Hello, ${name}!`;
+    document.getElementById("showtime").innerHTML = `Good luck, ${name}!`;
     document.getElementById("form").style.display="none";
+    
   };
 
 
@@ -49,7 +46,7 @@ function App() {
                onChange={updateName}
                required
                />
-          <button onClick={showName}>Submit</button> 
+          <button className="submit_btn" onClick={showName}>Submit</button> 
 
           
           </form>

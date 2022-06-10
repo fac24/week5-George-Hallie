@@ -19,7 +19,7 @@ export default function Rules(props) {
   );
   return (
     <div className="rules">
-      <button className="awfbtn" onClick={toggleOpen}>Rules</button>;{rules}
+      <button className="rules_btn" onClick={toggleOpen}>Rules</button>{rules}
     </div>
   );
 }

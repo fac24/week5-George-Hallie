@@ -24,7 +24,7 @@ export default function Game(props) {
 
   const nextFilm =
     5 - props.lives + props.correct !== props.guesses ? (
-      <button
+      <button className="next"
         onClick={() => {
           props.setGuesses(props.guesses + 1);
           setRandomIndex(Math.floor(Math.random() * 10 + 1));
@@ -37,7 +37,7 @@ export default function Game(props) {
     ) : null;
 
   const restartButton = (
-    <button
+    <button className="restart"
       onClick={() => {
         props.setGuesses(0);
         props.setLives(5);
@@ -79,23 +79,4 @@ export default function Game(props) {
   );
 }
 
-// flipcards
-{
-  /* <div className="flip_card">
-    <div className="flip_card_inner">
-        <div className="flip_card_front">
-            <label htmlFor={props.tileId}>
-            Tile {filmData.original_title}
-            <input
-            id={props.tileId}
-            type="image"
-            name={`submit_${props.tileId}`}
-            value={props.tileId}
-            alt={`Poster of ${filmData.original_title}`}
-            src={IMAGE_URL + filmData.poster_path}/>
-            </label>
-        </div>
-        <div className="flip_card_back">rating= {props.rating}</div>
-    </div>
-</div> */
-}
+
