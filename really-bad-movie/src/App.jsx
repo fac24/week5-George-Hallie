@@ -1,5 +1,4 @@
 import React from "react";
-//import logo from './game.jsx'
 import "./App.css";
 
 import Rules from "./components/Rules.jsx";
@@ -12,7 +11,7 @@ function App() {
   const [lives, setLives] = React.useState(5);
   const [correct, setCorrect] = React.useState(0);
   const [guesses, setGuesses] = React.useState(0);
-  
+  const [visibility, setVisibility] = React.useState(true);
 
   const updateName = (event) => {
     setName(event.target.value);
@@ -20,10 +19,10 @@ function App() {
 
   const showName = event => {
     event.preventDefault();
-    document.getElementById("showtime").innerHTML = `Good luck, ${name}!`;
-    document.getElementById("form").style.display="none";
-    
+    setName(event.target.elements.typename.value)
+    setVisibility(false);
   };
+  
 
 
  
@@ -35,22 +34,20 @@ function App() {
          <div className="rules"><Rules /></div>
         
         <section className = "hello_user">
-          <form id="form">
+          {visibility? <form id="form" onSubmit={showName}>
             <label data-for="name">Please enter your name: </label>
                <input
                type="text"
                name="typename"
                className="playerInput"
-               aria-label="enter your username"
-               value={name}
-               onChange={updateName}
+               aria-label="enter your username"              
                required
                />
-          <button className="submit_btn" onClick={showName}>Submit</button> 
+          <button className="submit_btn" type="submit">Submit</button> 
 
           
-          </form>
-          <div className="greeting"  id="showtime"></div>
+          </form> :
+          <div className="greeting"  id="showtime">Good luck, {name}!</div>}
           
         </section>
 
