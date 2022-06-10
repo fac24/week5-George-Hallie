@@ -20,5 +20,25 @@
 
 ---
 #### Can you guess the worst one?
-![that one](https://media4.giphy.com/media/WxxsVAJLSBsFa/200w.webp?cid=ecf05e47dv9aasgiceyyvxaxc386yrosqf6ncasalbz9sjch&rid=200w.webp&ct=g)
+![that one](https://media3.giphy.com/media/TKrjl5inUPYoU/200w.webp?cid=ecf05e47mamuzxcypjlp8vaoxbzcmbanrjgz3d31qnjjeswj&rid=200w.webp&ct=g)
+---
+# User Stories:
+-  User should be able to isert username;
+- Query an API (e.g. the Github API, or any other fun one);
+- Populate the UI with API data;
+- Have some form of persistent state and interactivity, e.g.
+- A hunger bar that decreases over time and is topped up when you feed them stars;
+
+![yep](https://media3.giphy.com/media/uBuzWfwVcadRC/200w.webp?cid=ecf05e47mamuzxcypjlp8vaoxbzcmbanrjgz3d31qnjjeswj&rid=200w.webp&ct=g)
+
+
+
+## Core features:
+
+- User selects between 2 films on which they think is the least popular
+- Gets correct or incorrect
+- Loses star if incorrect, or gains a point if correct
+- After all lives lost the high score is saved to local storage if they surpassed their current high score
+- Can restart the game
+- Sees old high score when using the same username
 
